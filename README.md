@@ -1,1 +1,3 @@
-# aoc22-swiftPackage
+# swifties
+
+A description of this package.
