@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug swifties",
+            "program": "${workspaceFolder:aoc22-swiftPackage}/.build/debug/swifties",
+            "args": [],
+            "cwd": "${workspaceFolder:aoc22-swiftPackage}",
+            "preLaunchTask": "swift: Build Debug swifties"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release swifties",
+            "program": "${workspaceFolder:aoc22-swiftPackage}/.build/release/swifties",
+            "args": [],
+            "cwd": "${workspaceFolder:aoc22-swiftPackage}",
+            "preLaunchTask": "swift: Build Release swifties"
+        }
+    ]
+}
