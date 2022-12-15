@@ -16,28 +16,32 @@ class Mine {
         sandCount = 0
         while dropSand(500, 0) {
             sandCount += 1
-            printGrid()
         }
+//        printGrid()
         print(sandCount)
     }
 
+    //24588 too low
     // function that drops sand at a given x coordinate
     func dropSand(_ xIn: Int, _ yIn: Int) -> Bool {
         var y: Int = yIn
         var x: Int = xIn
-        while y <= maxY+3 {
+        while y <= maxY+4 {
             let thisPoint: [Int] = [x, y]
             let nextPoint: [Int] = [x, y+1]
-            if (nextPoint[0] == maxY+2) {
+            if (nextPoint[1] == maxY+2) {
                 var jk = 69
             }
-            if grid[nextPoint] == "#" || grid[nextPoint] == "o" || nextPoint[0] == maxY+2 {
-                if grid[[x-1,y+1]] == nil  || y+1 == maxY+2 {
+            if grid[nextPoint] == "#" || grid[nextPoint] == "o" || nextPoint[1] == maxY+2 {
+                if grid[[x-1,y+1]] == nil && y+1 != maxY+2 {
                     return dropSand(x-1, y+1)
-                } else if grid[[x+1,y+1]] == nil  || y+1 == maxY+2{
+                } else if grid[[x+1,y+1]] == nil  && y+1 != maxY+2 {
                     return dropSand(x+1, y)
                 } else  {
                     grid[thisPoint] = "o"
+                    if thisPoint == [500, 0] {
+                        return false
+                    }
                     return true
                 }
             } else {
@@ -57,13 +61,17 @@ class Mine {
     
     //prits the grid
     public func printGrid() {
+        print()
         for y: Int in 0 ... maxY + 3 {
             var line: String = ""
-            for x: Int in minX - 2 ..< maxX + 3 {
+            for x: Int in minX - 10 ..< maxX + 10 {
                 let key: [Int] = [x, y]
-                if grid[key] == nil {
+                if y == maxY+2 {
+                    line += "#"
+                } else if grid[key] == nil {
                     line += "."
-                } else {
+                }
+                else {
                     line += grid[key]!
                 }
             }
