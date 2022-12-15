@@ -9,8 +9,13 @@ public enum swifties {
 }
 
 class Day {
-    var input: [String] = day14.components(separatedBy: "\n")
+    var input = day14.components(separatedBy: "\n")
     public func run() {}
 }
 
-class Day15: Day {}
+class Day15: Day {
+    override func run() {
+        input = day14.components(separatedBy: "\n")
+        print(input)
+    }
+}
